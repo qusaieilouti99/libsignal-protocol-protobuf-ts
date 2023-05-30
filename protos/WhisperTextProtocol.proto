@@ -10,6 +10,14 @@ message WhisperMessage {
   optional bytes  ciphertext      = 4; // PushMessageContent
 }
 
+message GroupWhisperMessage {
+  optional bytes  signaturePublicKey    = 1;
+  optional uint32 counter               = 2;
+  optional uint32 previousCounter       = 3;
+  optional bytes  ciphertext            = 4; // PushMessageContent
+  optional bytes  signature             = 5; // signature
+}
+
 message PreKeyWhisperMessage {
   optional uint32 registrationId = 5;
   optional uint32 preKeyId       = 1;

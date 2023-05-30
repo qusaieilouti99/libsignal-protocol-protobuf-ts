@@ -1,6 +1,6 @@
 #!/bin/bash
 
-protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/generated/  ./protos/WhisperTextProtocol.proto ./protos/PushMessages.proto
+protoc --plugin=protoc-gen-ts_proto=.\\node_modules\\.bin\\protoc-gen-ts_proto.cmd --ts_proto_out=./src/generated/  ./protos/WhisperTextProtocol.proto ./protos/PushMessages.proto
 
 # ./node_modules/protobufjs/bin/pbjs -t static-module -w es6 -o ./generated/messages.js ./protos/WhisperTextProtocol.proto ./protos/PushMessages.proto
 # ./node_modules/protobufjs/bin/pbts -o ./generated/messages.d.ts ./generated/messages.js

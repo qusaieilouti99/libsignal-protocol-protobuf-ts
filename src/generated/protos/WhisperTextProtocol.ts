@@ -1,8 +1,9 @@
 /* eslint-disable */
 import { util, configure, Writer, Reader } from 'protobufjs/minimal'
 import * as Long from 'long'
+import {DeepPartial} from "./PushMessages";
 
-export const protobufPackage = 'textsecure'
+//export const protobufPackage = 'textsecure'
 
 export interface WhisperMessage {
     ephemeralKey: Uint8Array
@@ -588,7 +589,7 @@ function base64FromBytes(arr: Uint8Array): string {
     return btoa(bin.join(''))
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined
+/*type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined
 export type DeepPartial<T> = T extends Builtin
     ? T
     : T extends Array<infer U>
@@ -597,10 +598,11 @@ export type DeepPartial<T> = T extends Builtin
     ? ReadonlyArray<DeepPartial<U>>
     : T extends {}
     ? { [K in keyof T]?: DeepPartial<T[K]> }
-    : Partial<T>
+    : Partial<T>*/
 
 // If you get a compile-error about 'Constructor<Long> and ... have no overlap',
 // add '--ts_proto_opt=esModuleInterop=true' as a flag when calling 'protoc'.
+// @ts-ignore
 if (util.Long !== Long) {
     util.Long = Long as any
     configure()
